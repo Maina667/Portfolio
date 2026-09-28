@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles K. Maina | AI Trainer & Language Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #ec4899;
+            --bg-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        header {
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+            padding: 10rem 2rem 6rem 2rem;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: -3rem auto 4rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2 i {
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+            border-left: 5px solid var(--primary);
+        }
+
+        .stats-box h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* Experience & Companies */
+        .job-card {
+            background: #fdfdfd;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.08);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .company-badge.appen {
+            background: #fae8ff;
+            color: #86198f;
+        }
+
+        .job-card h3 {
+            font-size: 1.35rem;
+            color: var(--dark);
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #334155;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: #f1f5f9;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .skill-tag i {
+            color: var(--primary);
+        }
+
+        .skill-tag:hover i {
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-card:hover {
+            background: #e0e7ff;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-card i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Charles K. Maina</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header>
+        <div class="hero-img-container">
+            <!-- Your uploaded profile image -->
+            <img src="7544d0e1-ee82-4407-80bf-5dd1a9e43799.jfif" alt="Charles K. Maina" class="hero-img">
+        </div>
+        <h1>Charles K. Maina</h1>
+        <p>AI Trainer & Language Specialist</p>
+        <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:charles.k.maina@email.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- About Section -->
+        <section id="about">
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <div class="about-grid">
+                <div>
+                    <p>Detail-oriented AI Trainer with extensive experience in high-fidelity data annotation and language-based AI research. Proven track record in optimizing Large Language Models (LLMs) through precise text, image, and video evaluation and cross-platform data labeling. Skilled in maintaining exceptional data quality standards and navigating complex AI training workflows.</p>
+                    <br>
+                    <p>Graduated with a Bachelor of Science in Information Technology (Second Class Honors, Best Thesis) from the Technical University of Mombasa. Passionate about bridging software development and machine learning dataset optimization.</p>
+                </div>
+                <div class="stats-box">
+                    <h3>2+</h3>
+                    <p>Years in AI Training & Annotation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+
+            <!-- iMerit Experience -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3>Data Annotator</h3>
+                        <span class="company-badge"><i class="fas fa-building"></i> iMerit</span>
+                    </div>
+                    <span class="job-date">January 2025 – Present</span>
+                </div>
+                <p>Worked as a freelance AI Data Trainer and Language Specialist at iMerit. This remote role involved optimizing Large Language Models (LLMs) by precisely evaluating text and images.</p>
+                <ul>
+                    <li>Completed training in image, text, and video labeling following strict project guidelines.</li>
+                    <li>Demonstrated strong attention to detail and accuracy while handling repetitive workflows.</li>
+                    <li>Developed clear understanding of AI training benchmarks and data quality requirements.</li>
+                    <li>Compared image datasets and selected best-in-class vs low-quality outputs.</li>
+                    <li>Contributed to specialized projects including Nidra WF10 and WF8.</li>
+                </ul>
+            </div>
+
+            <!-- Appen Experience -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3>Video Annotation Specialist</h3>
+                        <span class="company-badge appen"><i class="fas fa-video"></i> Appen</span>
+                    </div>
+                    <span class="job-date">November 2024 – February 2026</span>
+                </div>
+                <p>Worked as a freelance AI Video Trainer and Analyst at Appen, optimizing Multimodal Large Language Models through high-precision video annotation and dynamic visual data evaluation.</p>
+                <ul>
+                    <li><strong>Precision Video Annotation:</strong> Performed complex frame-by-frame video labeling and temporal tracking to train computer vision motion recognition models.</li>
+                    <li><strong>Dataset Optimization:</strong> Utilized advanced tools like CVAT and internal platforms to categorize dynamic visual data with high accuracy.</li>
+                    <li><strong>LLM & Multimodal Training:</strong> Contributed to LLM development by evaluating video-to-text output synchronization and quality.</li>
+                    <li><strong>Strict Quality Control:</strong> Delivered high-fidelity datasets under tight production timelines.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2><i class="fas fa-tools"></i> Relevant Skills</h2>
+            <div class="skills-container">
+                <div class="skill-tag"><i class="fas fa-image"></i> Labeling Images</div>
+                <div class="skill-tag"><i class="fas fa-film"></i> Annotating Videos & Text</div>
+                <div class="skill-tag"><i class="fas fa-code"></i> Web App Design</div>
+                <div class="skill-tag"><i class="fas fa-laptop-code"></i> IT & System Admin</div>
+                <div class="skill-tag"><i class="fas fa-headphones"></i> Transcription</div>
+                <div class="skill-tag"><i class="fas fa-language"></i> Translations</div>
+                <div class="skill-tag"><i class="fas fa-database"></i> Data Entry</div>
+                <div class="skill-tag"><i class="fas fa-brain"></i> AI Training</div>
+                <div class="skill-tag"><i class="fas fa-star"></i> Rating Apps & Ads</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2><i class="fas fa-paper-plane"></i> Contact Me</h2>
+            <p style="color: var(--gray);">Feel free to reach out via email, phone, or connect with me on professional platforms.</p>
+            
+            <div class="contact-grid">
+                <!-- Email -->
+                <a href="mailto:charles.k.maina@email.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Me</h4>
+                    <p>charles.k.maina@email.com</p>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+254700123436" class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Call / WhatsApp</h4>
+                    <p>+254 700 123 436</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" class="contact-card">
+                    <i class="fab fa-linkedin-in"></i>
+                    <h4>LinkedIn</h4>
+                    <p>linkedin.com/in/charlesmainai</p>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com" target="_blank" class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <h4>GitHub</h4>
+                    <p>github.com/charlesmainai</p>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Charles K. Maina. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
